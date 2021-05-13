@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "frontend:dev": "nuxt --config-file nuxt.config.js -p=3000",
+    "admin:dev": "nuxt --config-file admin/nuxt.config.js -p=4000",
+    "dev": "concurrently \"npm run frontend:dev\" \"npm run admin:dev\"",
+    "frontend:build": "nuxt build --config-file nuxt.config.js",
+    "admin:build": "nuxt build --config-file admin/nuxt.config.js",
+    "frontend:start": "nuxt start --config-file nuxt.config.js",
+    "admin:start": "nuxt start --config-file admin/nuxt.config.js",
+    "frontend:serve": "nuxt serve --config-file nuxt.config.js",
+    "admin:serve": "nuxt serve --config-file admin/nuxt.config.js"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
